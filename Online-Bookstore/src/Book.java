@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class Book {
     private static int staticID=0;
@@ -63,9 +65,27 @@ public class Book {
     }
 
     public void print(){
-        System.out.println("Title of Book is:" + this.getTitle());
-        System.out.println("Price of Book is:" + this.getPrice());
-        System.out.println("ID of book is:"+ this.getId());
-        System.out.println("Book is released on:" + this.getReleaseDate());
+        System.out.println(this.toString());
     }
+    public String getDateToString(java.time.LocalDate date){
+        int dayOfMonth=date.getDayOfMonth();
+        String dayOfMonthString;
+        if((dayOfMonth%10)==1){
+            dayOfMonthString=String.format("Released on %dst of ",dayOfMonth);
+        } else if ((dayOfMonth%10)==3) {
+            dayOfMonthString=String.format("Released on %drd of ",dayOfMonth);
+        }else{
+            dayOfMonthString=String.format("Released on %dth of ",dayOfMonth);
+        }
+        String month=date.getMonth().getDisplayName(TextStyle.FULL,Locale.ENGLISH);
+        String year=String.format(" of the year %d.",date.getYear());
+        return dayOfMonthString + month+year;
+    }
+    @Override
+    public String toString(){
+        return "Book title is " + this.getTitle() +
+                "\n"+this.getDateToString(this.getReleaseDate())+
+                "\nWith ID: " +this.getId();
+    }
+
 }

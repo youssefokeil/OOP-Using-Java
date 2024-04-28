@@ -22,8 +22,14 @@ public class AudioBook extends Book{
 
     @Override
     public void print(){
-        super.print();
-        System.out.println("TextBook has number of pages:"+this.getLengthInMinutes());
+        System.out.println(this.toString());
+    }
+    @Override
+    public String toString(){
+        String s = super.toString() +
+                String.format("\nAudioBook takes %.1f minutes to finish:", this.getLengthInMinutes());
+        return s;
+
     }
 }
 

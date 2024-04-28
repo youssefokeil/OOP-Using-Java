@@ -44,8 +44,8 @@ public class Main {
         Book[] bookArray=bookArrayInitialization();
         int sizeOfArray=bookArray.length;
         //printing each book in the array
-        for(int i=0;i<sizeOfArray;i++){
-            bookArray[i].print();
+        for (Book book : bookArray) {
+            book.print();
         }
     }
 }

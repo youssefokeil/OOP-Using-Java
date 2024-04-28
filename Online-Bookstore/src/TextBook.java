@@ -21,7 +21,12 @@ public class TextBook extends Book{
     }
     @Override
     public void print(){
-        super.print();
-        System.out.println("TextBook has number of pages:"+this.getNumPages());
+        System.out.println(this.toString());
+    }
+    @Override
+    public String toString(){
+        return super.toString()+
+                String.format("\nHas %d number of pages",this.getNumPages());
+
     }
 }
