@@ -29,9 +29,9 @@ public class HelloApplication extends Application {
         Button button=new Button("Ok");
         pane.getChildren().add(button);
         Circle circle = new Circle();
-        circle.setCenterX(135);
-        circle.setCenterY(125);
-        circle.setRadius(50);
+        circle.centerXProperty().bind(pane.widthProperty().divide(2));
+        circle.centerYProperty().bind(pane.heightProperty().divide(2));
+        circle.radiusProperty().bind(pane.heightProperty().divide(4));
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
         pane.getChildren().add(circle);
