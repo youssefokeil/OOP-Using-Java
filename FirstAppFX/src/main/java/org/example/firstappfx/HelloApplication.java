@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +23,21 @@ public class HelloApplication extends Application {
         Stage secondaryStage = new Stage();
         secondaryStage.setTitle("Secondary Stage");
         secondaryStage.setScene(new Scene(new Button("Hello from the other world"),320,240));
-        secondaryStage.setResizable(false);
+        secondaryStage.show();
+
+        Pane pane= new Pane();
+        Button button=new Button("Ok");
+        pane.getChildren().add(button);
+        Circle circle = new Circle();
+        circle.setCenterX(135);
+        circle.setCenterY(125);
+        circle.setRadius(50);
+        circle.setStroke(Color.BLACK);
+        circle.setFill(Color.WHITE);
+        pane.getChildren().add(circle);
+        Scene scene1= new Scene(pane, 270, 250);
+        secondaryStage.setTitle("Button in Pane");
+        secondaryStage.setScene(scene1);
         secondaryStage.show();
     }
 
