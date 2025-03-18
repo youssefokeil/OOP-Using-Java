@@ -18,11 +18,13 @@ public class Main {
 
         threadA.start();
 
-        System.out.println("Started Thread B "+ threadB);
-        threadB.start();
+
 
         System.out.println("Started Thread C "+threadC);
         threadC.start();
+
+        System.out.println("Started Thread B "+ threadB);
+        threadB.start();
 
         System.out.println("End of main thread");
 
